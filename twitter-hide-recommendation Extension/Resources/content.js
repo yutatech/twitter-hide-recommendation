@@ -1,22 +1,26 @@
-// browser.runtime.sendMessage({ greeting: "hello" }).then((response) => {
-//     console.log("Received response: ", response);
-// });
-
-// browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-//     console.log("Received request: ", request);
-// });
-
 const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
-        // DOMツリーが更新されたときに実行
-        const divsWithRole = document.querySelectorAll('div[role="presentation"]');
-        divsWithRole.forEach(el => {
-            // 「おすすめ」のみj列が含まれるelを非表示にする
-            if (el.textContent.includes('おすすめ')) {
-                el.style.display = 'none';
-//                observer.disconnect();
-            }
-        });
+        // mutation : 変更されたDOM要素
+        if (mutation.target.getAttribute('role') == "tablist") {
+            const children = mutation.target.children;
+            [...children].forEach(el => {
+                if (el.textContent.includes('おすすめ')) {
+                    // elがおすすめタブ
+                    el.style.display = 'none';
+//                  observer.disconnect();
+                } else if (el.textContent.includes('フォロー中')) {
+                    // elがフォロー中タブ
+                    const anchor = el.querySelector("a");
+                    if (anchor) {
+                      const selected = anchor.getAttribute("aria-selected");
+                      if (selected === "false") {
+                          // フォロー中タブが選択状態でなければタブを切り替え
+                          anchor.click();
+                      }
+                    }
+                }
+            });
+        }
     }
 });
 
