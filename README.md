@@ -1,5 +1,5 @@
 # twitter-hide-recommendation
-This is an Extension of Safari for macOS. This Extension hides "おすすめ" tab of x.com. This will prevent you from looking at the posts forever.
+This is an Extension of Safari for macOS. This Extension hides "おすすめ" tab of x.com. This will prevent you from looking at the posts forever. And promotion posts are also hidden.
 
 ## Dependencies
 - Xcode
