@@ -6,8 +6,13 @@ This is an Extension of Safari for macOS. This Extension hides "おすすめ" ta
 
 ## How To Install
 1. Open this project in Xcode
-2. "Product > Run" or "Command + R" on Xcode
-3. Move to Safari
-4. Open x.com
-5. Click the lightning icon in the top right corner of the Safari window
-6. Click "Always allow on this website"
+2. Sign to this extension
+    - Click twitter-hide-recommendation.xcodeproj (the top directory of the file tree with blue app icon)
+    - Open "Signning & Capabilities" tab
+    - Choose your Apple Account in Signing > Team (default to None)
+    - Repeat the above steps for both targets.
+3. "Product > Run" or "Command + R" on Xcode
+4. Move to Safari
+5. Open x.com
+6. Click the lightning icon in the top right corner of the Safari window
+7. Click "Always allow on this website"
